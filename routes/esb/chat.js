@@ -82,9 +82,11 @@ function handleMessage(socket,io){
         request("http://funny.aha.taipei/esb/ai/1/message/"+encodeURIComponent(msg.message.slice(1)), function (error, response, body) {
           if (!error && response.statusCode == 200) {
             var data = JSON.parse(body);
-            if(data.answerMsg !== undefined){
+            if(data.answerMsg !== null){
               var msg = data.answerMsg[0];
               io.emit('chat_msg_success',{"name":"喵管家","nickname":"喵喵","message":msg,t:new Date()});
+            }else{
+              io.emit('chat_msg_success',{"name":"喵管家","nickname":"喵喵","message":"聽不太懂ㄟ，可以再說一次嗎",t:new Date()});
             }
           }
         });
