@@ -36,6 +36,12 @@ app.use(function (req, res, next) {
 // setting socket.io
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
+io.engine.ws = new (require('uws').Server)({
+    noServer: true,
+    perMessageDeflate: false
+});
+
+
 var funny_chat = require('./routes/esb/chat');
 var chat_io = io.of('/chat').on('connection', function (socket) {
   funny_chat(socket, chat_io);
@@ -44,6 +50,5 @@ var chat_io = io.of('/chat').on('connection', function (socket) {
 
 // start server on the specified port and binding host
 http.listen(appEnv.port, '0.0.0.0', function() {
-	// print a message when the server starts listening
   console.log("server starting on " + appEnv.url);
 });
