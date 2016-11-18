@@ -16,6 +16,6 @@
 	"license":"CC-BY-NC-SA-4.0",
 	"repository": {},
 	"engines": {
-		"node": "5.7.x"
+		"node": "7.x.x"
 	}
 }
