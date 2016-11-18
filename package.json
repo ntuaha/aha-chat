@@ -10,8 +10,8 @@
     "express": "^4.12.4",
     "multer": "~1.1.0",
     "request": "~2.69.0",
-    "socket.io": "^1.5.1",
     "uws": "^0.11.0",
+    "socket.io": "~1.5.x",
     "xml2js": "~0.4.16"
   },
   "license": "CC-BY-NC-SA-4.0",
