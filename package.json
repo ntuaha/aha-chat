@@ -9,12 +9,13 @@
     "cfenv": "^1.0.3",
     "express": "^4.12.4",
     "request": "~2.69.0",
-    "socket.io": "~1.4.x",
+    "socket.io": "^1.5.1",
+    "uws": "^0.11.0",
     "xml2js": "~0.4.16"
   },
   "license": "CC-BY-NC-SA-4.0",
   "repository": {},
   "engines": {
-    "node": "6.x.x"
+    "node": "7.x.x"
   }
 }

@@ -22,7 +22,7 @@ app.use('/',express.static(__dirname + '/public'));
 // get the app environment from Cloud Foundry
 var appEnv = cfenv.getAppEnv();
 
-app.use(function (req, res, next) {
+app.use((req, res, next) => {
   if (req.method === 'OPTIONS') {
     res.statusCode = 204;
     return res.end();
@@ -34,23 +34,19 @@ app.use(function (req, res, next) {
 
 
 // setting socket.io
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
-/*
+var io = require('socket.io')(require('http').Server(app));
 io.engine.ws = new (require('uws').Server)({
     noServer: true,
     perMessageDeflate: false
 });
-*/
 
 
-var funny_chat = require('./routes/esb/chat');
-var chat_io = io.of('/chat').on('connection', function (socket) {
-  funny_chat(socket, chat_io);
+var chat_io = io.of('/chat').on('connection', (socket) => {
+  require('./routes/esb/chat')(socket, chat_io);
 });
 
 
 // start server on the specified port and binding host
-http.listen(appEnv.port, '0.0.0.0', function() {
+http.listen(appEnv.port, '0.0.0.0', () => {
   console.log("server starting on " + appEnv.url);
 });
