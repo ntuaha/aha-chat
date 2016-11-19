@@ -5,3 +5,4 @@
 ## 功能清單
 
 1. /chat/index.html
+2. /aha.html - hello world
