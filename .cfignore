@@ -1,3 +1,4 @@
 node_modules
 /routes/esb/message.txt
 .git
+npm-debug.log

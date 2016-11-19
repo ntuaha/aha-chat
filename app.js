@@ -34,7 +34,8 @@ app.use((req, res, next) => {
 
 
 // setting socket.io
-var io = require('socket.io')(require('http').Server(app));
+const http = require('http').Server(app);
+var io = require('socket.io')(http);
 io.engine.ws = new (require('uws').Server)({
     noServer: true,
     perMessageDeflate: false

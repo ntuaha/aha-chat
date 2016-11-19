@@ -1,3 +1,4 @@
 node_modules
 /routes/esb/message.txt
 ._*
+npm-debug.log
