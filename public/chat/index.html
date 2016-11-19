@@ -85,7 +85,7 @@
         if(socket !== null){
           socket.disconnect();
         }
-        socket = io('/chat',{'force new connection': true});
+        socket = io('/chat_new',{'force new connection': true});
         handleUpdate();
         socket.emit("addUser",{"name": name,"nickname": nickname});
       }

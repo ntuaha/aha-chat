@@ -42,7 +42,7 @@ io.engine.ws = new (require('uws').Server)({
 });
 
 
-var chat_io = io.of('/chat').on('connection', (socket) => {
+var chat_io = io.of('/chat_new').on('connection', (socket) => {
   require('./routes/esb/chat')(socket, chat_io);
 });
 
